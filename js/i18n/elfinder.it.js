@@ -2,7 +2,8 @@
  * Italiano translation
  * @author Alberto Tocci (alberto.tocci@gmail.com)
  * @author Claudio Nicora (coolsoft.ita@gmail.com)
- * @version 2016-12-12
+ * @author Nico Di Clemente <ndiclemente@gmail.com>
+ * @version 2017-06-21
  */
 (function(root, factory) {
 	if (typeof define === 'function' && define.amd) {
@@ -14,11 +15,12 @@
 	}
 }(this, function(elFinder) {
 	elFinder.prototype.i18.it = {
-		translator : 'Alberto Tocci (alberto.tocci@gmail.com), Claudio Nicora (coolsoft.ita@gmail.com)',
+		translator : 'Alberto Tocci (alberto.tocci@gmail.com), Claudio Nicora (coolsoft.ita@gmail.com), Nico Di Clemente &lt;ndiclemente@gmail.com&gt;',
 		language   : 'Italiano',
 		direction  : 'ltr',
-		dateFormat : 'd/m/Y H:i',
-		fancyDateFormat : '$1 H:i',
+		dateFormat : 'd/m/Y H:i', // Mar 13, 2012 05:27 PM
+		fancyDateFormat : '$1 H:i', // will produce smth like: Today 12:25 PM
+		nonameDateFormat : 'ymd-His', // to apply if upload file is noname: 120513172700
 		messages   : {
 
 			/********************************** errors **********************************/
@@ -50,6 +52,7 @@
 			'errLocked'            : '"$1" è bloccato e non può essere rinominato, spostato o eliminato.',
 			'errExists'            : 'Il file "$1" è già esistente.',
 			'errInvName'           : 'Nome file non valido.',
+			'errInvDirname'        : 'Nome cartella non valido.',  // from v2.1.24 added 12.4.2017
 			'errFolderNotFound'    : 'Cartella non trovata.',
 			'errFileNotFound'      : 'File non trovato.',
 			'errTrgFolderNotFound' : 'La cartella di destinazione"$1" non è stata trovata.',
@@ -75,6 +78,7 @@
 			'errMove'              : 'Impossibile spostare "$1".',
 			'errCopyInItself'      : 'Sorgente e destinazione risultato essere uguali.',
 			'errRm'                : 'Impossibile rimuovere "$1".',
+			'errTrash'             : 'Impossibile spostare nel Cestino.', // from v2.1.24 added 30.4.2017
 			'errRmSrc'             : 'Impossibile eliminare i file origine.',
 			'errExtract'           : 'Impossibile estrarre file da "$1".',
 			'errArchive'           : 'Impossibile creare archivio.',
@@ -106,7 +110,11 @@
 			'errConvUTF8'          : 'Non convertibile nel formato UTF-8', // from v2.1 added 08.04.2014
 			'errFolderUpload'      : 'Per uploadare l0intera cartella usare Google Chrome.', // from v2.1 added 26.6.2015
 			'errSearchTimeout'     : 'Timeout durante la ricerca di "$1". I risultati della ricerca sono parziali.', // from v2.1 added 12.1.2016
-			'errReauthRequire'     : 'E\' necessaria la riautorizzazione.', // from v2.1.10 added 3.24.2016
+			'errReauthRequire'     : 'E\' necessaria la riautorizzazione.', // from v2.1.10 added 24.3.2016
+			'errMaxTargets'        : 'Numero massimo di file selezionabili: $1.', // from v2.1.17 added 17.10.2016
+			'errRestore'           : 'Impossibile ripristinare dal cestino. Non e\' possibile identificare la cartella di ripristino.', // from v2.1.24 added 3.5.2017
+			'errEditorNotFound'    : 'Editor non trovato per questo file.', // from v2.1.25 added 23.5.2017
+			'errServerError'       : 'Errore sul server.', // from v2.1.25 added 16.6.2017
 
 			/******************************* commands names ********************************/
 			'cmdarchive'   : 'Crea archivio',
@@ -131,6 +139,8 @@
 			'cmdreload'    : 'Ricarica',
 			'cmdrename'    : 'Rinomina',
 			'cmdrm'        : 'Elimina',
+			'cmdtrash'     : 'Cestina', //from v2.1.24 added 29.4.2017
+			'cmdrestore'   : 'Ripristina', //from v2.1.24 added 3.5.2017
 			'cmdsearch'    : 'Ricerca file',
 			'cmdup'        : 'Vai alla directory padre',
 			'cmdupload'    : 'Carica File',
@@ -143,6 +153,8 @@
 			'cmdchmod'     : 'Cambia modalità', // from v2.1 added 20.6.2015
 			'cmdopendir'   : 'Apri una cartella', // from v2.1 added 13.1.2016
 			'cmdcolwidth'  : 'Reimposta dimensione colonne', // from v2.1.13 added 12.06.2016
+			'cmdfullscreen': 'A tutto schermo', // from v2.1.15 added 03.08.2016
+			'cmdmove'      : 'Sposta', // from v2.1.15 added 21.08.2016
 
 			/*********************************** buttons ***********************************/
 			'btnClose'  : 'Chiudi',
@@ -163,6 +175,11 @@
 			'btnFileName':'Nome file',  // from v2.1 added 22.5.2015
 			'btnSaveClose': 'Salva & Chiudi', // from v2.1 added 12.6.2015
 			'btnBackup' : 'Backup', // fromv2.1 added 28.11.2015
+			'btnRename'    : 'Rinomina',      // from v2.1.24 added 6.4.2017
+			'btnRenameAll' : 'Rinomina tutti', // from v2.1.24 added 6.4.2017
+			'btnPrevious' : 'Prec ($1/$2)', // from v2.1.24 added 11.5.2017
+			'btnNext'     : 'Succ ($1/$2)', // from v2.1.24 added 11.5.2017
+			'btnSaveAs'   : 'Salva come', // from v2.1.25 added 24.5.2017
 
 			/******************************** notifications ********************************/
 			'ntfopen'     : 'Apri cartella',
@@ -192,6 +209,14 @@
 			'ntfchmod'    : 'Modifica della modalità del file', // from v2.1 added 20.6.2015
 			'ntfpreupload': 'Verifica del nome del file caricato', // from v2.1 added 31.11.2015
 			'ntfzipdl'    : 'Creazione del file da scaricare', // from v2.1.7 added 23.1.2016
+			'ntfparents'  : 'Informazioni sul path', // from v2.1.17 added 2.11.2016
+			'ntfchunkmerge': 'Elaborazione sui file in corso', // from v2.1.17 added 2.11.2016
+			'ntftrash'    : 'Sposto nel cestino', // from v2.1.24 added 2.5.2017
+			'ntfrestore'  : 'Ripristino dal cestino', // from v2.1.24 added 3.5.2017
+			'ntfchkdir'   : 'Verifica cartella di destinazione', // from v2.1.24 added 3.5.2017
+
+			/*********************************** volumes *********************************/
+			'volume_Trash' : 'Elimina', //from v2.1.24 added 29.4.2017
 
 			/************************************ dates **********************************/
 			'dateUnknown' : 'sconosciuto',
@@ -246,6 +271,7 @@
 			'sortmode'          : 'per modalità',       // from v2.1.13 added 13.06.2016
 			'sortowner'         : 'per possessore',      // from v2.1.13 added 13.06.2016
 			'sortgroup'         : 'per gruppo',      // from v2.1.13 added 13.06.2016
+			'sortAlsoTreeview'  : 'Also Treeview',  // from v2.1.15 added 01.08.2016
 
 			/********************************** new items **********************************/
 			'untitled file.txt' : 'NuovoFile.txt', // added 10.11.2015
@@ -256,8 +282,11 @@
 			'confirmReq'      : 'Conferma richiesta',
 			'confirmRm'       : 'Sei sicuro di voler eliminare i file?<br />L\'operazione non è reversibile!',
 			'confirmRepl'     : 'Sostituire i file ?',
+			'confirmRest'     : 'Sostituire i file esistenti con quelli dal cestino?', // fromv2.1.24 added 5.5.2017
 			'confirmConvUTF8' : 'Non in formato UTF-8<br/>Convertire in UTF-8?<br/>Il contenuto diventerà UTF-8 salvando dopo la conversione.', // from v2.1 added 08.04.2014
+			'confirmNonUTF8'  : 'Character encoding of this file couldn\'t be detected. It need to temporarily convert to UTF-8 for editting.<br/>Please select character encoding of this file.', // from v2.1.19 added 28.11.2016
 			'confirmNotSave'  : 'Il contenuto è stato modificato.<br/>Le modifiche andranno perse se non si salveranno.', // from v2.1 added 15.7.2015
+			'confirmTrash'    : 'Sicuro di eliminare i file?', //from v2.1.24 added 29.4.2017
 			'apllyAll'        : 'Applica a tutti',
 			'name'            : 'Nome',
 			'size'            : 'Dimensione',
@@ -314,6 +343,7 @@
 			'selectForUpload' : 'Seleziona file da caricare',
 			'moveFiles'       : 'Sposta file',
 			'copyFiles'       : 'Copia file',
+			'restoreFiles'    : 'Ripristina elementi', // from v2.1.24 added 5.5.2017
 			'rmFromPlaces'    : 'Rimuovi da places',
 			'aspectRatio'     : 'Proporzioni',
 			'scale'           : 'Scala',
@@ -363,9 +393,32 @@
 			'hasSelected'     : '$1 elementi sono selezionati.', // from v2.1.13 added 6.3.2016
 			'hasClipboard'    : '$1 elementi negli appunti.', // from v2.1.13 added 6.3.2016
 			'incSearchOnly'   : 'La ricerca incrementale è solo dalla vista corrente.', // from v2.1.13 added 6.30.2016
+			'reinstate'       : 'Reinstate', // from v2.1.15 added 3.8.2016
+			'complete'        : '$1 completato', // from v2.1.15 added 21.8.2016
+			'contextmenu'     : 'Menu contestuale', // from v2.1.15 added 9.9.2016
+			'pageTurning'     : 'Page turning', // from v2.1.15 added 10.9.2016
+			'volumeRoots'     : 'Volume roots', // from v2.1.16 added 16.9.2016
+			'reset'           : 'Reset', // from v2.1.16 added 1.10.2016
+			'bgcolor'         : 'Background color', // from v2.1.16 added 1.10.2016
+			'colorPicker'     : 'Color picker', // from v2.1.16 added 1.10.2016
+			'8pxgrid'         : '8px Grid', // from v2.1.16 added 4.10.2016
+			'enabled'         : 'Enabled', // from v2.1.16 added 4.10.2016
+			'disabled'        : 'Disabled', // from v2.1.16 added 4.10.2016
+			'emptyIncSearch'  : 'Search results is empty in current view.\\APress [Enter] to expand search target.', // from v2.1.16 added 5.10.2016
+			'emptyLetSearch'  : 'First letter search results is empty in current view.', // from v2.1.23 added 24.3.2017
+			'textLabel'       : 'Text label', // from v2.1.17 added 13.10.2016
+			'minsLeft'        : '$1 mins left', // from v2.1.17 added 13.11.2016
+			'openAsEncoding'  : 'Reopen with selected encoding', // from v2.1.19 added 2.12.2016
+			'saveAsEncoding'  : 'Save with the selected encoding', // from v2.1.19 added 2.12.2016
+			'selectFolder'    : 'Select folder', // from v2.1.20 added 13.12.2016
+			'firstLetterSearch': 'First letter search', // from v2.1.23 added 24.3.2017
+			'presets'         : 'Presets', // from v2.1.25 added 26.5.2017
+			'tooManyToTrash'  : 'Troppi elementi da spostare nel cestino.', // from v2.1.25 added 9.6.2017
+			'TextArea'        : 'TextArea', // from v2.1.25 added 14.6.2017
 
 			/********************************** mimetypes **********************************/
 			'kindUnknown'     : 'Sconosciuto',
+			'kindRoot'        : 'Volume Root', // from v2.1.16 added 16.10.2016
 			'kindFolder'      : 'Cartella',
 			'kindAlias'       : 'Alias',
 			'kindAliasBroken' : 'Alias guasto',
@@ -446,3 +499,4 @@
 		}
 	};
 }));
+
